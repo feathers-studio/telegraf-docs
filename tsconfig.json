@@ -1,12 +1,9 @@
 {
 	"compilerOptions": {
-		"composite": true,
-		"checkJs": true,
-		"noEmit": true,
 		"strict": true,
 		"module": "NodeNext",
 		"target": "es2021",
 		"outDir": "./dist-examples"
 	},
-	"include": ["./examples"]
+	"include": ["./global.d.ts", "./examples"]
 }

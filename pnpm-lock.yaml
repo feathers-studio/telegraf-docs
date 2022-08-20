@@ -1,26 +1,32 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@fastify/express': ^2.0.1
   '@types/express': ^4.17.13
   '@types/koa': ^2.13.5
+  '@types/node': ^18.7.6
   express: ^4.18.1
   fastify: ^4.5.0
+  https-proxy-agent: ^5.0.1
   koa: ^2.13.4
   koa-body: ^5.0.0
+  lambda-request-handler: 0.5.1-alpha1
   telegraf: link:../telegraf
+  typescript: ^4.7.4
 
 dependencies:
-  '@fastify/express': 2.0.1
   express: 4.18.1
   fastify: 4.5.0
+  https-proxy-agent: 5.0.1
   koa: 2.13.4
   koa-body: 5.0.0
+  lambda-request-handler: 0.5.1-alpha1
   telegraf: link:../telegraf
 
 devDependencies:
   '@types/express': 4.17.13
   '@types/koa': 2.13.5
+  '@types/node': 18.7.6
+  typescript: 4.7.4
 
 packages:
 
@@ -38,15 +44,6 @@ packages:
 
   /@fastify/error/3.0.0:
     resolution: {integrity: sha512-dPRyT40GiHRzSCll3/Jn2nPe25+E1VXc9tDwRAIKwFCxd5Np5wzgz1tmooWG3sV0qKgrBibihVoCna2ru4SEFg==}
-    dev: false
-
-  /@fastify/express/2.0.1:
-    resolution: {integrity: sha512-EAV/hje/6YVp0hnG4MUzslZkorR9zpyPO+Uihwb6vgNCwy7D5cqt23bGX18Oz6U6twYcBju9y4cEbx3hdKHl1g==}
-    dependencies:
-      express: 4.18.1
-      fastify-plugin: 3.0.1
-    transitivePeerDependencies:
-      - supports-color
     dev: false
 
   /@fastify/fast-json-stringify-compiler/4.0.0:
@@ -180,6 +177,15 @@ packages:
     dependencies:
       mime-types: 2.1.35
       negotiator: 0.6.3
+    dev: false
+
+  /agent-base/6.0.2:
+    resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
+    engines: {node: '>= 6.0.0'}
+    dependencies:
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /ajv-formats/2.1.1:
@@ -448,10 +454,6 @@ packages:
     resolution: {integrity: sha512-qKRta6N7BWEFVlyonVY/V+BMLgFqktCUV0QjT259ekAIlbVrMaFnFLxJ4s/JPl4tou56S1BzPufI60bLe29fHA==}
     dev: false
 
-  /fastify-plugin/3.0.1:
-    resolution: {integrity: sha512-qKcDXmuZadJqdTm6vlCqioEbyewF60b/0LOFCcYN1B6BIZGlYJumWWOYs70SFYLDAH4YqdE1cxH/RKMG7rFxgA==}
-    dev: false
-
   /fastify/4.5.0:
     resolution: {integrity: sha512-21DEAqgFniJhgKPiJ0dIzSMrnl9X3bE14/jK2y8EcIy3GLBrjUhqFvIb8cayOrks2eenssVaUhUgMX1t2i4H5g==}
     dependencies:
@@ -587,11 +589,25 @@ packages:
       toidentifier: 1.0.1
     dev: false
 
+  /https-proxy-agent/5.0.1:
+    resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
+    engines: {node: '>= 6'}
+    dependencies:
+      agent-base: 6.0.2
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
     dependencies:
       safer-buffer: 2.1.2
+    dev: false
+
+  /in-process-request/0.3.1:
+    resolution: {integrity: sha512-UHw+WuKNw3Eqd9OqwrU0doTZsTksE8xcYUyLLi1zP5auz8UcBPYa1PVLQTPF89i5cjtsXeeI8FbsOTXazaJY0w==}
     dev: false
 
   /inflation/2.0.0:
@@ -613,6 +629,11 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       has-tostringtag: 1.0.0
+    dev: false
+
+  /isutf8/3.1.1:
+    resolution: {integrity: sha512-5P2FgGyDsSnRMaLPVGVIgYgMxj50lBujvi5lsVgP1qvMWhxvkmVBWtPcIKgXw9j+/RnmxSvHg3e9tbDnPxx6dw==}
+    engines: {node: '>= 10.12.0'}
     dev: false
 
   /json-schema-traverse/1.0.0:
@@ -675,6 +696,13 @@ packages:
       vary: 1.1.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /lambda-request-handler/0.5.1-alpha1:
+    resolution: {integrity: sha512-wdEQH9ccbVCp1oE9Dpa5nVk6WE8qWIFpiih/7YtL6tKjp2vpjx3jdtUtyhlUS2XrZK4cJoD15S69aapNNBvI0A==}
+    dependencies:
+      in-process-request: 0.3.1
+      isutf8: 3.1.1
     dev: false
 
   /light-my-request/5.5.0:
@@ -1011,6 +1039,12 @@ packages:
       media-typer: 0.3.0
       mime-types: 2.1.35
     dev: false
+
+  /typescript/4.7.4:
+    resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
 
   /unpipe/1.0.0:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}

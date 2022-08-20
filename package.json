@@ -13,12 +13,16 @@
 	"dependencies": {
 		"express": "^4.18.1",
 		"fastify": "^4.5.0",
+		"https-proxy-agent": "^5.0.1",
 		"koa": "^2.13.4",
 		"koa-body": "^5.0.0",
+		"lambda-request-handler": "0.5.1-alpha1",
 		"telegraf": "link:../telegraf"
 	},
 	"devDependencies": {
 		"@types/express": "^4.17.13",
-		"@types/koa": "^2.13.5"
+		"@types/koa": "^2.13.5",
+		"@types/node": "^18.7.6",
+		"typescript": "^4.7.4"
 	}
 }
