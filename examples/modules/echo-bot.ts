@@ -1,10 +1,7 @@
-// @ts-nocheck
-// This file needs to be CommonJS, or at least compiled to CommonJS for it to work
-// This may change in the near future, so this example is kept
-
 // To run a Telegraf module, use:
-// $> telegraf -t `BOT TOKEN` echo-bot-module.js
-const { Composer, Markup } = require("telegraf");
+// $> telegraf -t `BOT TOKEN` echo-bot.js
+
+import { Composer, Markup } from "telegraf";
 
 const bot = new Composer();
 
@@ -45,4 +42,4 @@ bot.help(ctx => ctx.reply("Help message"));
 bot.on("message", ctx => ctx.copyMessage(ctx.message.chat.id, keyboard));
 bot.action("delete", ctx => ctx.deleteMessage());
 
-module.exports = bot;
+export default bot;
