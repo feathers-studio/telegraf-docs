@@ -1,0 +1,21 @@
+{
+	"name": "telegraf-aws-lambda",
+	"description": "AWS Lambda example for Telegraf",
+	"version": "0.0.1",
+	"main": "echo.js",
+	"type": "module",
+	"scripts": {
+		"serverless": "serverless",
+		"release": "serverless deploy",
+		"delete": "serverless remove"
+	},
+	"devDependencies": {
+		"serverless": "^3.22.0",
+		"serverless-plugin-typescript": "^2.1.2",
+		"typescript": "^4.7.4"
+	},
+	"dependencies": {
+		"serverless-http": "^3.0.2",
+		"telegraf": "^4.9.0"
+	}
+}

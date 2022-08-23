@@ -1,0 +1,32 @@
+{
+	service: "aws",
+	frameworkVersion: "3",
+
+	package: {
+		excludeDevDependencies: true,
+	},
+
+	provider: {
+		name: "aws",
+		runtime: "nodejs16.x",
+	},
+
+	plugins: [
+		"serverless-plugin-typescript"
+	],
+
+	functions: {
+		echo: {
+			name: "telegraf-demo",
+			handler: "echo.echobot",
+			events: [
+				{
+					httpApi: {
+						path: "/telegraf",
+						method: "post",
+					},
+				},
+			],
+		},
+	},
+}
