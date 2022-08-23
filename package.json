@@ -1,22 +1,22 @@
 {
 	"name": "telegraf-docs",
 	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
+	"description": "Documentation and examples for Telegraf - the modern bot API framework",
+	"main": "echo.js",
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
-	"author": "",
-	"license": "ISC",
+	"author": "Muthu Kumar <@MKRhere> (https://mkr.pw)",
+	"license": "MIT",
 	"dependencies": {
 		"express": "^4.18.1",
 		"fastify": "^4.5.0",
 		"https-proxy-agent": "^5.0.1",
 		"koa": "^2.13.4",
 		"koa-body": "^5.0.0",
-		"lambda-request-handler": "0.5.1-alpha1",
+		"serverless-http": "^3.0.2",
 		"telegraf": "link:../telegraf"
 	},
 	"devDependencies": {

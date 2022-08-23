@@ -1,10 +1,10 @@
 import { Telegraf } from "telegraf";
-import makeHandler from "lambda-request-handler";
+import serverless from "serverless-http";
 
 const bot = new Telegraf(token);
 
 bot.start(ctx => ctx.reply("Hello"));
 
-export const lambdaHandler = makeHandler(
+export const lambdaHandler = serverless(
 	bot.webhookCallback(bot.secretPathComponent()),
 );

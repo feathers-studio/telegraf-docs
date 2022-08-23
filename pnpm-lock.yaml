@@ -9,7 +9,7 @@ specifiers:
   https-proxy-agent: ^5.0.1
   koa: ^2.13.4
   koa-body: ^5.0.0
-  lambda-request-handler: 0.5.1-alpha1
+  serverless-http: ^3.0.2
   telegraf: link:../telegraf
   typescript: ^4.7.4
 
@@ -19,7 +19,7 @@ dependencies:
   https-proxy-agent: 5.0.1
   koa: 2.13.4
   koa-body: 5.0.0
-  lambda-request-handler: 0.5.1-alpha1
+  serverless-http: 3.0.2
   telegraf: link:../telegraf
 
 devDependencies:
@@ -606,10 +606,6 @@ packages:
       safer-buffer: 2.1.2
     dev: false
 
-  /in-process-request/0.3.1:
-    resolution: {integrity: sha512-UHw+WuKNw3Eqd9OqwrU0doTZsTksE8xcYUyLLi1zP5auz8UcBPYa1PVLQTPF89i5cjtsXeeI8FbsOTXazaJY0w==}
-    dev: false
-
   /inflation/2.0.0:
     resolution: {integrity: sha512-m3xv4hJYR2oXw4o4Y5l6P5P16WYmazYof+el6Al3f+YlggGj6qT9kImBAnzDelRALnP5d3h4jGBPKzYCizjZZw==}
     engines: {node: '>= 0.8.0'}
@@ -629,11 +625,6 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       has-tostringtag: 1.0.0
-    dev: false
-
-  /isutf8/3.1.1:
-    resolution: {integrity: sha512-5P2FgGyDsSnRMaLPVGVIgYgMxj50lBujvi5lsVgP1qvMWhxvkmVBWtPcIKgXw9j+/RnmxSvHg3e9tbDnPxx6dw==}
-    engines: {node: '>= 10.12.0'}
     dev: false
 
   /json-schema-traverse/1.0.0:
@@ -696,13 +687,6 @@ packages:
       vary: 1.1.2
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /lambda-request-handler/0.5.1-alpha1:
-    resolution: {integrity: sha512-wdEQH9ccbVCp1oE9Dpa5nVk6WE8qWIFpiih/7YtL6tKjp2vpjx3jdtUtyhlUS2XrZK4cJoD15S69aapNNBvI0A==}
-    dependencies:
-      in-process-request: 0.3.1
-      isutf8: 3.1.1
     dev: false
 
   /light-my-request/5.5.0:
@@ -972,6 +956,11 @@ packages:
       send: 0.18.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /serverless-http/3.0.2:
+    resolution: {integrity: sha512-0r4TEhb8umOmbzvn9y9aFjdWdrapyNhTHd2oz1YsCRn+9A5RV3DOj6Pl3DH8BQgHnAlG6g88hiBB6/zefnvPRg==}
+    engines: {node: '>=12.0'}
     dev: false
 
   /set-cookie-parser/2.5.1:
