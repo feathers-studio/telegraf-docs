@@ -7,7 +7,8 @@
 	"scripts": {
 		"serverless": "serverless",
 		"release": "serverless deploy",
-		"purge": "serverless remove"
+		"purge": "serverless remove",
+		"set-webhook": "telegraf -m setWebhook"
 	},
 	"dependencies": {
 		"serverless-http": "^3.0.2",

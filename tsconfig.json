@@ -5,5 +5,6 @@
 		"target": "es2021",
 		"outDir": "./dist-examples"
 	},
-	"include": ["./global.d.ts", "./examples"]
+	"include": ["./global.d.ts", "./examples"],
+	"exclude": ["./examples/functions"]
 }
