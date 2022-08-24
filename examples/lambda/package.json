@@ -7,7 +7,7 @@
 	"scripts": {
 		"serverless": "serverless",
 		"release": "serverless deploy",
-		"delete": "serverless remove"
+		"purge": "serverless remove"
 	},
 	"devDependencies": {
 		"serverless": "^3.22.0",

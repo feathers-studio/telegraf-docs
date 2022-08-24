@@ -4,12 +4,12 @@ This template demonstrates how to run a simple Telegraf echo bot with on AWS Lam
 
 ## Usage
 
-After installing dependencies (using `pnpm install` or the similar), the following commands are available:
+After installing dependencies (using `npm install` or the similar), the following commands are available:
 
 ```bash
-pnpm serverless # alias for the serverless binary
-pnpm release # alias for pnpm serverless deploy
-pnpm delete # alias for pnpm serverless remove
+npm run serverless # alias for the serverless binary
+npm run release # alias for pnpm serverless deploy
+npm run purge # alias for pnpm serverless remove
 ```
 
 For more details, consult the [serverless framework documentation](https://www.serverless.com).
