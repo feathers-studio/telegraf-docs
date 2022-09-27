@@ -16,6 +16,7 @@
 	},
 	"devDependencies": {
 		"serverless": "^3.22.0",
+		"serverless-dotenv-plugin": "^4.0.2",
 		"serverless-plugin-typescript": "^2.1.2",
 		"typescript": "^4.7.4"
 	}
