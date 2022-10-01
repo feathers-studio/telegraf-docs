@@ -32,8 +32,8 @@ const {
 const port = Number(PORT) || 3000;
 
 // assert and refuse to start bot if token or webhookDomain is not passed
-if (!token) throw new Error('"WEBHOOK_URL" env var is required!');
-if (!webhookDomain) throw new Error('"BOT_TOKEN" env var is required!');
+if (!token) throw new Error('"BOT_TOKEN" env var is required!');
+if (!webhookDomain) throw new Error('"WEBHOOK_DOMAIN" env var is required!');
 ```
 
 > **Important note**: Only use the vars needed for your bot. If you don't use webhooks, you don't need WEBHOOK_DOMAIN or the corresponding assertion.
