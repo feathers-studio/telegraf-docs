@@ -2,6 +2,8 @@
 	service: "aws",
 	frameworkVersion: "3",
 
+	useDotenv: true,
+
 	package: {
 		excludeDevDependencies: true,
 	},
@@ -12,7 +14,8 @@
 	},
 
 	plugins: [
-		"serverless-plugin-typescript"
+		"serverless-plugin-typescript",
+		"serverless-dotenv-plugin"
 	],
 
 	functions: {
