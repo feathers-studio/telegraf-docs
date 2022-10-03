@@ -37,7 +37,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 Subsequently, you need to start listening for updates from Telegram. The simpest way to do this is just to call `bot.launch()`.
 
-> Note: By default this uses long-polling ([what's that?](TODO@mkr//write-article)), but using [webhooks](TODO@mkr//write-article) are is supported. We'll see these options in detail in a later chapter.
+> Note: By default this uses long-polling ([what's that?](TODO@mkr//write-article)), but using [webhooks](TODO@mkr//write-article) is also supported. We'll see these options in detail in a later chapter.
 
 ```TS (Node)
 bot.launch();
@@ -51,7 +51,7 @@ When Telegram users first discover your bot, they will send a `/start` command. 
 // Remember, this should ideally be written before `bot.launch()`!
 
 bot.start(ctx => {
-	return ctx.reply(`Hello ${ctx.update.message.from.first_name}!`);
+  return ctx.reply(`Hello ${ctx.update.message.from.first_name}!`);
 });
 ```
 
@@ -68,13 +68,21 @@ import { Telegraf } from "telegraf";
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start(ctx => {
-	return ctx.reply(`Hello ${ctx.update.message.from.first_name}!`);
+  return ctx.reply(`Hello ${ctx.update.message.from.first_name}!`);
 });
 
 bot.launch();
 ```
 
-To start your bot, 
+To start your bot, run the following:
+
+```shell
+# Compile first, if you're using TS
+npx tsc
+
+# Run the bot
+node index.js
+```
 
 If you made it this far, congrats! You've written your first bot that responds to users who start the bot with `"Hello, user!"`. You should test it out!
 
