@@ -41,5 +41,6 @@ Telegram groups (by number of members):
 > * Working with files
 > * Working with environment variables
 > * Long-polling vs Webhooks
+> * Broadcasting
 
 [[Chapter 1: Getting started: your first bot!]](./001-your-first-bot.md)

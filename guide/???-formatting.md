@@ -27,7 +27,8 @@ bot.telegram.sendMessage("*Bold*, _italic_, and __underlines__\\!", { parse_mode
 Since a variety of characters are reserved for Markdown syntax, if you want to use the character as-is in your text, you must escape it with a `\`. Since `\` by itself is an escape character, it must be escaped again, with `\\`. For example:
 
 ```TS (Node)
-ctx.replyWithMarkdownV2("Sending an asterisk: \\*"); // sends "*"
+// Inside a handler
+ctx.replyWithMarkdownV2("Sending an asterisk: \\*"); // sends "Sending an asterisk: *"
 ```
 
 ## HTML
