@@ -1,4 +1,4 @@
-# Filters in Telegraf
+# `[006]` Filters in Telegraf
 
 You can use `bot.on` listener with `message("text")` or any other filter
 
