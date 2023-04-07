@@ -1,4 +1,4 @@
-### `[004]` **Calling API**
+# `[004]` **Calling API**
 
 In Telegraf, it is possible to call all the possible api methods using `bot.telegram.*`
 
