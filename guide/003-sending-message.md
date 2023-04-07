@@ -1,12 +1,40 @@
+# `[003]` Sending Message
+
+When you want to send user a message then you need to call function to send the message.
+
+In this artice, we'll talk about how can we send a message using our bot.
+
+See also: [official reference to sendMessage](https://core.telegram.org/bots/api#send-message)
+
+### Sending Message using Context (Update Received)
+
+```TS (Node)
+bot.hears("hello",async ctx=>{
+    ctx.reply("Hi");
+})
+```
+
+### Sending From Direct API Call
+
+```TS (Node)
+// You can get chatId from update
+bot.telegram.sendMessage(chatId,"Hello World!")
+```
+
+### Advanced
+
+You can pass options to do more actions like `reply_to_message_id` and many more.
+You can see official reference given by Telegram to know about usage of options.
+
 # Formatting messages
 
 > The Bot API supports basic formatting for messages. You can use bold, italic, underlined, strikethrough, and spoiler text, as well as inline links and pre-formatted code in your bots' messages. Telegram clients will render them accordingly. [[Read more]](https://core.telegram.org/bots/api#formatting-options)
 
 There are 3 ways to format messages sent to Telegram with Telegraf:
 
-* [Markdown](#markdown)
-* [HTML](#html)
-* [fmt helpers](#fmt) (recommended!)
+- [Markdown](#markdown)
+- [HTML](#html)
+- [fmt helpers](#fmt) (recommended!)
 
 ## Markdown
 
@@ -164,4 +192,83 @@ link("Link text", URL);
 
 ```TS (Node)
 mention("User", userId);
+```
+
+# Reply Markup
+
+You can pass `reply_markup` in options.
+
+There are two types of markup available (as of Bot API 6.6)
+
+1. Inline Keyboard
+
+   Inline Keyboard looks like this :
+   <img src="https://core.telegram.org/file/464001950/1191a/2RwpmgU-swU.123554/b50478c124d5914c23">
+
+   You can use Telegraf's Markup for making Inline Keyboard easily.
+
+   ```TS (Node)
+   import { Markup } from "telegraf"
+
+   bot.on("message",async ctx=>{
+       await ctx.reply("This is a awsome Inline Keyboard",Markup.inlineKeyboard([
+           Markup.button.callback('Hey','hey')
+       ]))
+   });
+   ```
+
+   **How to use More Options with Markup?**
+
+   ```TS (Node)
+   bot.on("message", async (ctx) => {
+   await ctx.reply("<b>This is a awsome Inline Keyboard</b>", {
+       reply_markup: Markup.inlineKeyboard([Markup.button.callback("Hey", "hey")]),
+       parse_mode: "HTML",
+   });
+   });
+   ```
+
+2. Keyboard
+
+   Keyboard Looks Like this:
+   <img src="https://core.telegram.org/file/464001863/110f3/I47qTXAD9Z4.120010/e0ea04f66357b640ec">
+
+   You can just do same as inline but Keyboard doesn't support Markup (by Telegraf)
+
+   ```TS (Node)
+   bot.on("message", async (ctx) => {
+   await ctx.reply("<b>This is a awsome Keyboard</b>", {
+       reply_markup: {
+        keyboard:[
+            ['Row'], // row 1
+            ['Row 2'] // row 2
+        ]
+       },
+       parse_mode: "HTML",
+   });
+   });
+   ```
+
+   You can even send keyboard with options.
+
+   ```TS (Node)
+   bot.on("message", async (ctx) => {
+   await ctx.reply("<b>This is a awsome Keyboard</b>", {
+       reply_markup: {
+        keyboard:[
+            ['Row'], // row 1
+            [{text:'Share Contact',request_contact:true}] // row 2
+        ]
+       },
+       parse_mode: "HTML",
+   });
+   });
+   ```
+
+You can use all these options also in calling `bot.telegram.sendMessage()`
+
+```TS (Node)
+bot.telegram.sendMessage(chatId,"<b>Wow</b>",{
+    parse_mode:"HTML"
+});
 ```
