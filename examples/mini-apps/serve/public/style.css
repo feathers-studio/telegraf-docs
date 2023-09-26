@@ -1,0 +1,110 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	--bg-color: var(--tg-theme-bg-color, rgb(240, 248, 255));
+	--text-color: var(--tg-theme-text-color, rgb(0, 0, 0));
+	--button-color: var(--tg-theme-button-color, rgb(165, 42, 42));
+	--button-text-color: var(--tg-theme-button-text-color, rgb(240, 248, 255));
+	--link-color: var(--tg-theme-link-color, rgb(0, 132, 255));
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+	transition: all 200ms ease-in-out;
+}
+
+body {
+	height: 100vh;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+}
+
+main,
+div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+main {
+	height: 100%;
+	gap: 1.5rem;
+	padding: 2rem;
+}
+
+main img {
+	max-width: 40%;
+	animation: rotation 6s infinite linear;
+}
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
+
+main h1 {
+	font-size: 2.5rem;
+	font-weight: 700;
+}
+
+main h2 {
+	font-weight: 500;
+}
+
+main span {
+	display: flex;
+	gap: 1rem;
+	margin-block-start: 4rem;
+}
+
+button {
+	padding: 0.6rem 1rem;
+	font-size: 1.2rem;
+	border: 0;
+	border-radius: 1.5rem;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-family: Inter;
+	letter-spacing: 0.1rem;
+}
+
+button:active {
+	scale: 1.1;
+}
+
+button:disabled {
+	cursor: not-allowed;
+}
+
+button#click {
+	background-color: var(--button-color);
+	color: var(--button-text-color);
+}
+
+button#click:active {
+	background-color: rgb(var(--button-color * 0.2));
+}
+
+button#click:disabled {
+	background-color: rgb(119, 119, 119);
+}
+
+button#reset {
+	margin-block-start: 0.5rem;
+	background-color: transparent;
+	color: var(--link-color);
+	padding: 0 0;
+	font-size: 0.8rem;
+}
+
+a {
+	color: var(--link-color);
+}

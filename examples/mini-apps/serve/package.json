@@ -1,0 +1,19 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"serve": "http-server -p 10000"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"http-server": "^14.1.1"
+	},
+	"devDependencies": {
+		"@types/telegram-web-app": "^6.7.1",
+		"typescript": "^5.2.2"
+	}
+}

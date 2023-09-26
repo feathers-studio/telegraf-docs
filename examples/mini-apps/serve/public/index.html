@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Telegram Web App example</title>
+
+	<link rel="stylesheet" href="/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<main>
+		<img src="https://raw.githubusercontent.com/telegraf/telegraf/v4/docs/assets/logo.svg" alt="Telegraf logo">
+		<div>
+			<h1>Telegraf</h1>
+			<h2>Mini App</h2>
+		</div>
+		<div>
+			<button id="click" disabled>Click</button>
+			<button id="reset">Reset</button>
+		</div>
+		<p id="count">Loading...</p>
+		<p id="errors"></p>
+		<span>
+			<a href="https://github.com/feathers-studio/telegraf-docs/tree/master/">Examples</a>
+			<a href="https://core.telegram.org/bots/webapps">Telegram docs</a>
+		</span>
+	</main>
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+	<script src="/web-app.js" type="module"></script>
+</body>
+
+</html>
