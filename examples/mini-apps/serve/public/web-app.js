@@ -1,6 +1,7 @@
 const app = window.Telegram.WebApp;
 const storage = app.CloudStorage;
 
+app.ready();
 app.expand();
 
 const [errorer, btn, reset, count] = [
@@ -11,25 +12,29 @@ const [errorer, btn, reset, count] = [
 ];
 
 /** @param e {any} */
-const setError = e => (errorer.innerText += "\n" + JSON.stringify(e));
+const setError = e =>
+	(errorer.innerText += "\n" + JSON.stringify(e, null, "\t"));
 
-window.addEventListener("error", e => setError(e));
+window.addEventListener("error", e => setError(e.toString()));
 
-storage.getItem("clicks", (err, val) => {
+/** @param error {string | null} @param value {string | undefined} */
+const parse = (error, value) => (!error ? (value ? parseInt(value) : 0) : 0);
+
+storage.getItem("clicks", (error, value) => {
+	if (error) return setError({ error, type: typeof error, value });
 	btn.removeAttribute("disabled");
-	if (!err) {
-		const c = !err ? (val ? parseInt(val) : 0) : 0;
-		count.innerText = `Clicked ${c} times`;
-	}
+
+	const c = parse(error, value);
+	count.innerText = `Clicked ${c} times`;
 });
 
 btn.addEventListener("click", () => {
 	btn.setAttribute("disabled", "");
 	storage.getItem("clicks", (error, value) => {
-		if (error) setError({ error, type: typeof error, value });
-		const c = (!error ? (value ? parseInt(value) : 0) : 0) + 1;
+		if (error) return setError({ error, type: typeof error, value });
+		const c = parse(error, value) + 1;
 		storage.setItem("clicks", String(c), (error, success) => {
-			if (error) setError({ error, type: typeof error, success });
+			if (error) return setError({ error, type: typeof error, success });
 			count.innerText = `Clicked ${c} times`;
 			btn.removeAttribute("disabled");
 		});
@@ -38,8 +43,10 @@ btn.addEventListener("click", () => {
 
 reset.addEventListener("click", () => {
 	storage.removeItem("clicks", (error, success) => {
-		if (error) setError({ error, type: typeof error, success });
+		if (error) return setError({ error, type: typeof error, success });
 		count.innerText = `Count was reset!`;
 		btn.removeAttribute("disabled");
 	});
 });
+
+export {};

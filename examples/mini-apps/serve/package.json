@@ -4,16 +4,17 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"serve": "http-server -p 10000"
+		"serve": "tsx server.ts"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"http-server": "^14.1.1"
+		"express": "^4.18.2"
 	},
 	"devDependencies": {
 		"@types/telegram-web-app": "^6.7.1",
+		"tsx": "^3.13.0",
 		"typescript": "^5.2.2"
 	}
 }
