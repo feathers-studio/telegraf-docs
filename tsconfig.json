@@ -6,5 +6,5 @@
 		"outDir": "./dist-examples"
 	},
 	"include": ["./global.d.ts", "./examples"],
-	"exclude": ["./examples/functions"]
+	"exclude": ["./examples/functions", "examples/mini-apps/serve"]
 }
