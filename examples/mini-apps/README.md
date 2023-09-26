@@ -53,18 +53,35 @@ Depending on how you launch it, each type of Mini App has a slightly different s
 | Direct link     | ✅               | ❌         | ❌         | ❌                  | ✅                                          | ❌     |
 | Attachment      | ✅               | ✅         | ❌         | ❌                  | ❌                                          | ✅     |
 
-Hence, Keyboard button Mini App can use `app.sendData` to communicate with the bot, and the sent data will be received on the bot's side as a service message:
+Hence, we can come to the following conclusions:
 
-```TS
-bot.on(message("web_app_data", async ctx => {
-	// assuming sendData was called with a JSON string
-	const data = ctx.webAppData.data.json();
-}));
-```
+1. Keyboard button Mini App can use `app.sendData` to communicate with the bot, and the sent data will be received on the bot's side as a service message:
 
-Other types of Mini Apps (except inline mode) must use `app.initData` to communicate with their own server. There is no way to directly send an update to your bot (such as `sendData`) this way. `initData` must be validated before being trusted. See [Validating `initData`](#validating-initdata).
+   ```TS
+   bot.on(message("web_app_data", async ctx => {
+   	// assuming sendData was called with a JSON string
+   	const data = ctx.webAppData.data.json();
+   	// or if sendData was called with plaintext
+   	const text = ctx.webAppData.data.text();
+   }));
+   ```
 
-Inline mode Mini Apps can only switching back to inline mode and requiring the user to actively select a result.
+2. Other types of Mini Apps (except inline mode) must use `app.initData` to communicate with their own server. There is no way to directly send an update to your bot (such as `sendData`) this way. `initData` must be validated before being trusted. See [Validating `initData`](#validating-initdata). Once validated, `initData` contains a `query_id` which the server may use to call `answerWebAppQuery`.
+
+   ```TS
+   bot.telegram.answerWebAppQuery(validatedData.query_id, {
+   	id: "0",
+   	type: "article",
+   	title: "Hello Mini App!",
+   	input_message_content: {
+   		message_text: "This message was sent from answerWebAppQuery",
+   	},
+   });
+   ```
+
+   If your application server is different from your bot server, you can still call `new Telegraf(token)` to create a bot instance to perform the above query, but do not call `bot.launch()`, which will cause your bot (which has already called launch) to self-destruct.
+
+3. Inline mode Mini Apps can only switching back to inline mode and requiring the user to actively select a result.
 
 ### Attachment menu
 
