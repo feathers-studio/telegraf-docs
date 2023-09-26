@@ -122,7 +122,7 @@ function getCheckString(data: URLSearchParams) {
 		.join("\n");
 }
 
-app.get("/validate-init", (req, res) => {
+app.post("/validate-init", (req, res) => {
 	const data = new URLSearchParams(req.body);
 
 	const data_check_string = getCheckString(data);
