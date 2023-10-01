@@ -84,7 +84,7 @@ npx tsc
 node index.js
 ```
 
-If you made it this far, congrats! You've written your first bot that responds to users who start the bot with `"Hello, user!"`. You should test it out!
+If you made it this far, congrats! You've written your first bot that responds `"Hello, user!"` to users who start the bot. You should test it out!
 
 <!-- TODO@mkr// New achievement: Responded to your first message! -->
 

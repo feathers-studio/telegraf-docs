@@ -12,14 +12,14 @@ if (process.env.BOT_TOKEN === undefined) {
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-// small helper
+// Simple helper function
 const download = async (fromFileId: string, toPath: string) => {
 	const link = await bot.telegram.getFileLink(fromFileId);
 	const res = await fetch(link.toString());
 	await res.body!.pipeTo(Writable.toWeb(createWriteStream(toPath)));
 };
 
-// handler that downloads all photos the bot sees to a photos
+// handler that saves all photos the bot receives to the photos folder
 bot.on(message("photo"), async ctx => {
 	// take the last photosize (highest size)
 	const { file_id } = ctx.message.photo.pop()!;

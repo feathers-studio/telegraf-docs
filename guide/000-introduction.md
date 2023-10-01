@@ -2,13 +2,35 @@
 
 Telegraf is a Modern Telegram bot framework. It helps you build bots using Telegram's excellent Bot API.
 
-Here are some bot examples written with Telegraf:
-* Echo bot
-* Cat bot
-* Inline dictionary bot
-* Dice game bot
-* Tic tac toe
+Here are some simple bot examples written with Telegraf:
+* [Customizing Context type](../examples/custom-context-bot.ts)
+* [Deeplinking](../examples/deeplink-bot.ts)
+* [Media downloading](../examples/download-bot.ts)
+* [Echo a simple inline keyboard](../examples/echo-bot.ts)
+* [An example bot containing useful Telegraf syntax](../examples/example-bot.ts)
+* [Replying with a Telegram game](../examples/game-bot.ts)
+* [Inline queries example](../examples/inline-bot.ts)
+* [Markup keyboards usage and examples](../examples/keyboard-bot.ts)
+* [Working with Telegram live location feature](../examples/live-location-bot.ts)
+* [Login functionality](../examples/login-bot.ts)
+* [Working with medias such as photos](../examples/media-bot.ts)
+* [Sending polls and quizzes](../examples/poll-bot.ts)
+* [Proxy agent usage](../examples/proxy-bot.ts)
+* [Telegref built-in session feature example](../examples/session-bot.ts)
+* [Invoice, shipping and preCheckout queries usage](../examples/shop-bot.ts)
+<!-- * Cat bot (Was not available in the examples folder)-->
+<!-- * Inline dictionary bot -->
+<!-- * Dice game bot -->
+<!-- * Tic tac toe -->
 
+Already an experienced Telegraf user or have specific high-level usecases? you might find these examples useful:
+<!-- * [Usage with AWS Lambda serverless functions](../examples/functions/aws-lambda/) -->
+<!-- * [Usage with Google cloud serverless functions](../examples/functions/google-cloud-function.ts) -->
+* [Mini apps integration](../examples/mini-apps/)
+* [Running Telegraf modules](../examples/modules/)
+* [Telegraf's Scenes feature examples](../examples/scenes/)
+* [Webhook integration and usage](../examples/webhook/)
+* [Telegraf's high-level Wizards examples](../examples/wizards/)
 <!-- TODO@mkr// add GIFs (or interactive playground?) -->
 
 Now that you have a feel for what you can use Telegraf for, it's time to learn how to use it!
@@ -36,11 +58,12 @@ Telegram groups (by number of members):
 > 
 > * [Your first Telegram bot!](./001-your-first-bot.md)
 > * [Listening for updates and responding to them](./002-listen-and-respond.md)
+> * [Formatting messages](./formatting.md)
+> * [Telegraf built-in session feature guide](./session.md) 
+> * [Broadcasting usage](./broadcasting.md)
 > * Context and Middleware
-> * Formatting messages
 > * Working with files
 > * Working with environment variables
 > * Long-polling vs Webhooks
-> * Broadcasting
 
 [[Chapter 1: Getting started: your first bot!]](./001-your-first-bot.md)
