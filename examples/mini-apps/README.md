@@ -108,8 +108,7 @@ window.addEventListener("ready", async function () {
 import { createHmac } from "node:crypto";
 
 function HMAC_SHA256(key: string | Buffer, secret: string) {
-  const algorithm = "sha256";
-  return createHmac(algorithm, key).update(secret);
+  return createHmac("sha256", key).update(secret);
 }
 
 function getCheckString(data: URLSearchParams) {
