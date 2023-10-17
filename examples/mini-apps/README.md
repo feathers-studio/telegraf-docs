@@ -107,8 +107,8 @@ window.addEventListener("ready", async function () {
 
 import { createHmac } from "node:crypto";
 
-function HMAC_SHA256(secret: string, key: string | Buffer) {
-	return createHmac("sha256", secret).update(key);
+function HMAC_SHA256(key: string | Buffer, secret: string) {
+  return createHmac("sha256", key).update(secret);
 }
 
 function getCheckString(data: URLSearchParams) {
@@ -126,8 +126,8 @@ app.post("/validate-init", (req, res) => {
 	const data = new URLSearchParams(req.body);
 
 	const data_check_string = getCheckString(data);
-	const secret_key = HMAC_SHA256(process.env.BOT_TOKEN!, "WebAppData").digest();
-	const hash = HMAC_SHA256(data_check_string, secret_key).digest("hex");
+	const secret_key = HMAC_SHA256("WebAppData", process.env.BOT_TOKEN!).digest();
+	const hash = HMAC_SHA256(secret_key, data_check_string).digest("hex");
 
 	if (hash === data.get("hash"))
 		// validated!
