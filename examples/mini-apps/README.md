@@ -83,7 +83,7 @@ Hence, we can come to the following conclusions:
 
    If your application server is different from your bot server, you can still call `new Telegraf(token)` to create a bot instance to perform the above query, but do not call `bot.launch()`, which will cause your bot (which has already called launch) to self-destruct.
 
-3. Inline mode Mini Apps can only switching back to inline mode and requiring the user to actively select a result.
+3. Inline mode Mini Apps can only switch back to inline mode and require the user to actively select a result.
 
 ### Attachment menu
 
