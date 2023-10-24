@@ -68,3 +68,29 @@ bot.on(message("text"), async ctx => {
 	await ctx.sendMessage("Hello!");
 });
 ```
+
+You can also listen to other updates like this.
+
+- Command
+
+```TS (Node)
+bot.command('commandName',async ctx=>{
+	await ctx.reply("Hello");
+});
+```
+
+- Message
+
+```TS (Node)
+bot.hears('Hi',async ctx=>{
+	await ctx.reply("Hello");
+});
+```
+
+- Callback Query (Inline Keyboard)
+
+```TS (Node)
+bot.action('action',async ctx=>{
+	await ctx.answerCbQuery("Hello");
+});
+```
