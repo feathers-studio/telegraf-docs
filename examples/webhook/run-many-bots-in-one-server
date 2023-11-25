@@ -1,0 +1,65 @@
+const express = require('express');
+const { Telegraf, Composer } = require('telegraf');
+
+const app = express();
+const bots = {};
+const port = process.env.PORT || 3000
+const DOMAIN = process.env.DOMAIN
+// Array of bot tokens after filtering out empty or undefined values
+const tokens = [process.env.TOKEN1, process.env.TOKEN2].filter(Boolean); 
+const bot = new Composer();
+
+app.get("/", (req, res) => {
+  res.send("Bot started..");
+});
+
+// here you can add more listeners e.g. bot.on("message", ....)
+bot.start((ctx) => {
+  ctx.reply("This bot is working...")
+})
+
+async function setupBots() {
+  for (let token of tokens) {
+    try {
+      // new Telegraf bot instance 
+      const newBot = new Telegraf(token);
+
+      // adding this instance in Composer class instance
+      newBot.use(bot);
+
+      // add bot to bots object
+      bots[token] = newBot;
+
+      // setting webhook endpoint for newlly created telegraf bot
+      await newBot.telegram.setWebhook(`${DOMAIN}/tg/${token}`, { drop_pending_updates: true });
+
+      console.log(`Bot with token ${token} has been initialized.`);
+    } catch (err) {
+      console.error(`Error initializing bot with token ${token}: ${err.message}`);
+    }
+  }
+}
+
+// calling setupBots function
+setupBots();
+
+// telegrams request converts in json formate before its use
+app.use(express.json());
+
+// dynamically getting response from each bot
+app.post("/tg/:token", async (req, res) => {
+  try {
+    const token = req.params.token;
+
+    // giving update to telegraf and response is sent to telegram
+    await bots[token].handleUpdate(req.body, res);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// Starting express server
+app.listen(port, () => console.log(`Bot running on ${DOMAIN}`));
+
+// Try this example fork this repl: https://replit.com/@PanditSiddharth/TelegrafMultipleBotsByWebhookExample#index.js
