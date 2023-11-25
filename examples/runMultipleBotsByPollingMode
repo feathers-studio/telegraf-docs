@@ -1,0 +1,37 @@
+const { Telegraf, Composer } = require('telegraf');
+
+// Array of bot tokens after filtering out empty or undefined values
+const tokens = [process.env.TOKEN1, process.env.TOKEN2].filter(Boolean); 
+
+const bot = new Composer();
+
+// Adding a start listener to the main bot instance
+bot.start((ctx) => {
+  ctx.reply("This bot is working...");
+});
+
+async function setupBots() {
+  for (let token of tokens) {
+    try {
+      // New Telegraf bot instance
+      const newBot = new Telegraf(token);
+
+      // Adding this instance to the main Composer class instance
+      newBot.use(bot);
+
+      // Running the newly created bot in polling mode
+      await newBot.launch({ dropPendingUpdates: true });
+
+      console.log(`Bot with token ${token} has been initialized.`);
+    } catch (err) {
+      console.error(`Error initializing bot with token ${token}: ${err.message}`);
+      // Handle the error here 
+    }
+  }
+}
+
+// Call the setupBots function
+setupBots();
+
+// Try this example by forking this REPL
+// https://replit.com/@PanditSiddharth/RunMultipleBotsInPollingMode#index.js
