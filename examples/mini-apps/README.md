@@ -45,6 +45,14 @@ To test a Mini App without publishing a website yourself, try using this one: ht
 Depending on how you launch it, each type of Mini App has a slightly different set of abilities.
 
 ### Feature table
+| **Private chats only** | | | ...
+| | initDataUnsafe | ...
+| Keyboard button | ...
+...
+| **All chats** | | | ...
+| Inline mode | ...
+...
+
 
 |                 | `initDataUnsafe` | `query_id` | `sendData` | `switchInlineQuery` | `chat_instance`, `chat_type`, `start_param` | `chat` |Private chat only|
 | --------------- | ---------------- | ---------- | ---------- | ------------------- | ------------------------------------------- | ------ | ---------- |
@@ -53,7 +61,7 @@ Depending on how you launch it, each type of Mini App has a slightly different s
 | Menu button     | ✅               | ✅         | ❌         | ❌                  | ❌                                          | ❌     | ✅     |
 | Inline mode     | ❌               | ❌         | ❌         | ✅                  | ❌                                          | ❌     | ❌     |
 | Direct link     | ✅               | ❌         | ❌         | ❌                  | ✅                                          | ❌     | ❌     |
-| Attachment      | ✅               | ✅         | ❌         | ❌                  | ❌                                          | ✅     | ✅     |
+| Attachment      | ✅               | ✅         | ❌         | ❌                  | ❌                                          | ✅     | ❌     |
 
 Hence, we can come to the following conclusions:
 
