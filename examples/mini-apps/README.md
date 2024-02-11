@@ -46,14 +46,14 @@ Depending on how you launch it, each type of Mini App has a slightly different s
 
 ### Feature table
 
-|                 | `initDataUnsafe` | `query_id` | `sendData` | `switchInlineQuery` | `chat_instance`, `chat_type`, `start_param` | `chat` |
-| --------------- | ---------------- | ---------- | ---------- | ------------------- | ------------------------------------------- | ------ |
-| Keyboard button | ❌               | ❌         | ✅         | ❌                  | ❌                                          | ❌     |
-| Inline keyboard | ✅               | ✅         | ❌         | ❌                  | ❌                                          | ❌     |
-| Menu button     | ✅               | ✅         | ❌         | ❌                  | ❌                                          | ❌     |
-| Inline mode     | ❌               | ❌         | ❌         | ✅                  | ❌                                          | ❌     |
-| Direct link     | ✅               | ❌         | ❌         | ❌                  | ✅                                          | ❌     |
-| Attachment      | ✅               | ✅         | ❌         | ❌                  | ❌                                          | ✅     |
+|                 | `initDataUnsafe` | `query_id` | `sendData` | `switchInlineQuery` | `chat_instance`, `chat_type`, `start_param` | `chat` |Private chat only|
+| --------------- | ---------------- | ---------- | ---------- | ------------------- | ------------------------------------------- | ------ | ---------- |
+| Keyboard button | ❌               | ❌         | ✅         | ❌                  | ❌                                          | ❌     | ✅     |
+| Inline keyboard | ✅               | ✅         | ❌         | ❌                  | ❌                                          | ❌     | ✅     |
+| Menu button     | ✅               | ✅         | ❌         | ❌                  | ❌                                          | ❌     | ✅     |
+| Inline mode     | ❌               | ❌         | ❌         | ✅                  | ❌                                          | ❌     | ❌     |
+| Direct link     | ✅               | ❌         | ❌         | ❌                  | ✅                                          | ❌     | ❌     |
+| Attachment      | ✅               | ✅         | ❌         | ❌                  | ❌                                          | ✅     | ❌     |
 
 Hence, we can come to the following conclusions:
 
